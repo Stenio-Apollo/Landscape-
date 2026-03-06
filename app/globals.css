@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-sand text-bark antialiased;
+  background-image:
+    radial-gradient(circle at top left, rgba(123, 143, 99, 0.2), transparent 26%),
+    radial-gradient(circle at right 12%, rgba(166, 108, 61, 0.12), transparent 24%),
+    linear-gradient(180deg, #f7efe4 0%, #f4e9d8 55%, #efe2cf 100%);
+}
+
+.section-shell {
+  @apply mx-auto max-w-6xl px-6 lg:px-8;
+}
+
+.section-card {
+  @apply rounded-[1.8rem] bg-sand/95 p-6 text-pine shadow-[0_18px_40px_rgba(0,0,0,0.18)] backdrop-blur;
+}
+
+.eyebrow {
+  @apply inline-flex items-center rounded-full border border-pine/10 bg-pine/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-pine;
+}
+
+.hero-panel {
+  background:
+    radial-gradient(circle at top right, rgba(123, 143, 99, 0.16), transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.68));
+}
+
+.theme-invert {
+  @apply bg-pine text-sand;
+  background-image:
+    radial-gradient(circle at top left, rgba(244, 233, 216, 0.08), transparent 22%),
+    radial-gradient(circle at right 16%, rgba(244, 233, 216, 0.05), transparent 18%),
+    linear-gradient(180deg, #294436 0%, #243c30 100%);
+  background-color: #294436;
+}
+
+.nav-sheen {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.88), rgba(255,255,255,0.64)),
+    radial-gradient(circle at top left, rgba(123, 143, 99, 0.12), transparent 34%);
+  box-shadow:
+    0 18px 36px rgba(41, 68, 54, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.38) inset;
+}
+
+.cta-glow {
+  box-shadow:
+    0 12px 24px rgba(41, 68, 54, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+    0 0 24px rgba(123, 143, 99, 0.14);
+}
+
+.logo-glow {
+  box-shadow:
+    0 14px 30px rgba(41, 68, 54, 0.22),
+    0 0 24px rgba(123, 143, 99, 0.18);
+}
+
+.hero-highlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-highlight::before {
+  content: "";
+  position: absolute;
+  inset: -30% auto auto 55%;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 68%);
+}
+
+.page-enter {
+  animation: page-enter 520ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+.float-card {
+  animation: float-card 5.8s ease-in-out infinite;
+}
+
+.service-card,
+.review-card,
+.stat-card {
+  animation: rise-in 640ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .page-enter,
+  .float-card,
+  .service-card,
+  .review-card,
+  .stat-card {
+    animation: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-shell {
+    @apply px-8;
+  }
+
+  .float-card {
+    animation-duration: 7.2s;
+  }
+}
