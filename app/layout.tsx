@@ -39,8 +39,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <SiteHeader />
-        {children}
-        <SiteFooter />
+        <div>
+          {children}
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );
