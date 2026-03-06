@@ -141,7 +141,7 @@ export function HomeHero() {
           </p>
         </div>
 
-        <div className="relative mt-4 hidden overflow-hidden rounded-[1.75rem] border border-pine/10 md:block">
+        <div className="relative mt-4 overflow-hidden rounded-[1.75rem] border border-pine/10">
           <video
             className="h-56 w-full object-fill lg:h-40"
             autoPlay
